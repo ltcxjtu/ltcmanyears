@@ -240,6 +240,21 @@ int main (int argc, char* argv[])
 
             //#3 Find potential sources from the beamformer
             beamformerFindMaxima(workspace.myBeamformer, workspace.myPreprocessor, workspace.myPotentialSources);
+            int k=0;
+            printf("the pointindex on the sphere:");
+            for( k=0;k<workspace.myParameters->P_BF_MAXSOURCES;k++)
+            {
+            	printf("%d ",(workspace.myBeamformer->maxIndexes)[k]);
+            }
+            printf("\n");
+
+            printf("the maxvalue on the sphere:");
+            k=0;
+            for( k=0;k<workspace.myParameters->P_BF_MAXSOURCES;k++);
+            {
+            	printf("%f ",(workspace.myBeamformer->maxValues)[k]);
+            }
+            printf("\n");
 
             //#4 Track Sources
             mixtureUpdate(workspace.myMixture, workspace.myTrackedSources, workspace.myPotentialSources);
